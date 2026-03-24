@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Словарь сленга | Сленг 21 века</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-brand">
+                <span class="logo">🗣️</span>
+                <span class="logo-text">Сленг 21 века</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="dictionary.html" class="active">Словарь</a></li>
+                <li><a href="quiz.html">Тест</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <h1>Словарь сленга</h1>
+            <p>52 актуальных слова, которые помогут понять язык разных поколений</p>
+        </section>
+
+        <section class="dictionary-filters">
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">Все слова (52)</button>
+                <button class="filter-btn" data-filter="youth">Молодежный сленг (26)</button>
+                <button class="filter-btn" data-filter="professional">Профессиональный сленг (26)</button>
+            </div>
+        </section>
+
+        <section class="dictionary-list">
+            <div class="dictionary-grid" id="dictionaryGrid"></div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>Проектная работа ученика 7 класса Московской школы</p>
+            <p>Сленг 21 века: от учителя до ученика © 2026</p>
+        </div>
+    </footer>
+
+    <script>
+        const dictionary = [
+            // Молодежный сленг (26 слов)
+            { word: "Кринж", meaning: "Что-то очень неловкое, стыдное, вызывающее смущение", example: "Это просто кринж, я не могу на это смотреть", category: "youth" },
+            { word: "Вайб", meaning: "Атмосфера, настроение, энергетика", example: "У этого места такой классный вайб", category: "youth" },
+            { word: "Рофл", meaning: "Шутка, ситуация, над которой можно посмеяться", example: "Это был чистый рофл", category: "youth" },
+            { word: "Хайп", meaning: "Ажиотаж, шумиха вокруг чего-то популярного", example: "Этот трек сейчас в хайпе", category: "youth" },
+            { word: "Чекать", meaning: "Проверять, смотреть", example: "Чекни сообщения в телеграме", category: "youth" },
+            { word: "Флексить", meaning: "Хвастаться, показывать себя, расслабляться", example: "Он пришел на вечеринку флексить", category: "youth" },
+            { word: "Изи", meaning: "Легко, просто", example: "Это задание было изи", category: "youth" },
+            { word: "Краш", meaning: "Человек, который очень нравится", example: "Мой краш сегодня сказал мне привет", category: "youth" },
+            { word: "Шеймить", meaning: "Стыдить, осуждать кого-то", example: "Не надо шеймить за выбор одежды", category: "youth" },
+            { word: "Задонатить", meaning: "Пожертвовать деньги, сделать перевод", example: "Зрители задонатили стримеру", category: "youth" },
+            { word: "Скуф", meaning: "Неопрятный мужчина средних лет", example: "Не будь скуфом, следи за собой", category: "youth" },
+            { word: "Нормис", meaning: "Обычный человек с традиционными взглядами", example: "Он такой нормис, не шарит за мемы", category: "youth" },
+            { word: "Агриться", meaning: "Злиться, проявлять агрессию", example: "Хватит агриться из-за мелочей", category: "youth" },
+            { word: "База", meaning: "Что-то очевидное, истина", example: "Это база, чувак", category: "youth" },
+            { word: "Буллинг", meaning: "Травля, издевательства над человеком", example: "Буллинг в школе — серьезная проблема", category: "youth" },
+            { word: "Вписка", meaning: "Вечеринка дома, тусовка", example: "Сегодня будет вписка у Дениса", category: "youth" },
+            { word: "Го", meaning: "Давай, пошли", example: "Го в кино сегодня?", category: "youth" },
+            { word: "Дуолингво", meaning: "Приложение для изучения языков (мем)", example: "Дуолингво опять напоминает про урок", category: "youth" },
+            { word: "Имба", meaning: "Что-то очень крутое, сильное", example: "Этот скин в игре просто имба", category: "youth" },
+            { word: "Лол", meaning: "Смешно, громко смеюсь", example: "Лол, это было неожиданно", category: "youth" },
+            { word: "Пруф", meaning: "Доказательство, подтверждение", example: "Где пруфы? Я не верю", category: "youth" },
+            { word: "Сасный", meaning: "Красивый, привлекательный", example: "Она такая сасная в этом платье", category: "youth" },
+            { word: "Токсик", meaning: "Человек, который распространяет негатив", example: "Не будь токсиком, расслабься", category: "youth" },
+            { word: "Фейл", meaning: "Неудача, провал", example: "Это был полный фейл", category: "youth" },
+            { word: "Хейтер", meaning: "Недоброжелатель, критикан", example: "Не слушай хейтеров", category: "youth" },
+            { word: "Чилить", meaning: "Отдыхать, расслабляться", example: "Весь день буду чилить дома", category: "youth" },
+            
+            // Профессиональный сленг (26 слов)
+            { word: "Деадлайн", meaning: "Крайний срок выполнения задачи", example: "Сдайте проект до дедлайна", category: "professional" },
+            { word: "Хард скиллы", meaning: "Профессиональные, измеримые навыки", example: "В IT важны хард скиллы", category: "professional" },
+            { word: "Софт скиллы", meaning: "Личностные качества, коммуникативные навыки", example: "Софт скиллы помогают в командной работе", category: "professional" },
+            { word: "Брифинг", meaning: "Короткое совещание, инструктаж", example: "Утренний брифинг в 9:00", category: "professional" },
+            { word: "Бэклог", meaning: "Список задач, которые нужно выполнить", example: "В бэклоге еще 10 задач", category: "professional" },
+            { word: "Когнитивный диссонанс", meaning: "Психологический дискомфорт от противоречий", example: "У меня когнитивный диссонанс от этой новости", category: "professional" },
+            { word: "Прокрастинация", meaning: "Привычка откладывать дела на потом", example: "Прокрастинация — враг продуктивности", category: "professional" },
+            { word: "Имплементация", meaning: "Внедрение, реализация", example: "Имплементация новой системы займет месяц", category: "professional" },
+            { word: "Агрессивный маркетинг", meaning: "Навязчивая реклама, активное продвижение", example: "Компания использует агрессивный маркетинг", category: "professional" },
+            { word: "Кейс", meaning: "Реальная ситуация из практики, задача", example: "Разберем сложный кейс", category: "professional" },
+            { word: "Сторителлинг", meaning: "Искусство рассказывать истории", example: "Хороший сторителлинг удерживает внимание", category: "professional" },
+            { word: "Тимбилдинг", meaning: "Мероприятия для сплочения команды", example: "Завтра тимбилдинг на природе", category: "professional" },
+            { word: "Аутсорс", meaning: "Передача задач сторонним специалистам", example: "Мы отдали разработку на аутсорс", category: "professional" },
+            { word: "Бенчмаркинг", meaning: "Анализ конкурентов, сравнение", example: "Провели бенчмаркинг рынка", category: "professional" },
+            { word: "Брейншторм", meaning: "Мозговой штурм, генерация идей", example: "Устроим брейншторм завтра", category: "professional" },
+            { word: "Дайджест", meaning: "Краткий обзор новостей, материалов", example: "Получите еженедельный дайджест", category: "professional" },
+            { word: "Инсайт", meaning: "Внезапное понимание, озарение", example: "Пришел интересный инсайт по проекту", category: "professional" },
+            { word: "Коллаборация", meaning: "Сотрудничество, совместная работа", example: "Коллаборация двух брендов", category: "professional" },
+            { word: "Комплаенс", meaning: "Соблюдение правил и стандартов", example: "Нарушение комплаенса недопустимо", category: "professional" },
+            { word: "Менторинг", meaning: "Наставничество, обучение", example: "В компании развит менторинг", category: "professional" },
+            { word: "Нетворкинг", meaning: "Построение полезных связей", example: "Нетворкинг помогает в карьере", category: "professional" },
+            { word: "Оффер", meaning: "Предложение о работе", example: "Получил оффер от крупной компании", category: "professional" },
+            { word: "Пайплайн", meaning: "Конвейер задач, воронка продаж", example: "Пайплайн проектов на квартал", category: "professional" },
+            { word: "Скалирование", meaning: "Масштабирование бизнеса", example: "Планируем скалирование в регионы", category: "professional" },
+            { word: "Фидбек", meaning: "Обратная связь", example: "Дай фидбек по моей работе", category: "professional" },
+            { word: "Эмпатия", meaning: "Способность понимать чувства других", example: "Эмпатия важна для руководителя", category: "professional" }
+        ];
+
+        function renderDictionary(filter = "all") {
+            const grid = document.getElementById('dictionaryGrid');
+            const filteredWords = filter === "all" ? dictionary : dictionary.filter(item => item.category === filter);
+            
+            grid.innerHTML = filteredWords.map(item => `
+                <div class="dictionary-card">
+                    <div class="card-word">${item.word}</div>
+                    <div class="card-meaning">${item.meaning}</div>
+                    <div class="card-example">📌 ${item.example}</div>
+                    <div class="card-category ${item.category}">
+                        ${item.category === "youth" ? "👥 Молодежный сленг" : "💼 Профессиональный сленг"}
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                renderDictionary(btn.dataset.filter);
+            });
+        });
+
+        renderDictionary("all");
+
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

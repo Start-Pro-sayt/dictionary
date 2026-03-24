@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Сленг 21 века | Главная</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-brand">
+                <span class="logo">🗣️</span>
+                <span class="logo-text">Сленг 21 века</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="active">Главная</a></li>
+                <li><a href="dictionary.html">Словарь</a></li>
+                <li><a href="quiz.html">Тест</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Сленг 21 века</h1>
+                <p class="subtitle">От учителя до ученика: говорим на разных языках, но понимаем друг друга</p>
+                <p class="hero-description">
+                    Исследовательский проект о том, как меняется язык поколений. Узнайте, что значат 
+                    «кринж», «вайб» и «дискавер», а также расшифруйте загадочные слова из мира IT и педагогики.
+                    В нашем словаре уже <strong>более 50 слов</strong>!
+                </p>
+                <div class="hero-buttons">
+                    <a href="dictionary.html" class="btn btn-primary">📖 Открыть словарь</a>
+                    <a href="quiz.html" class="btn btn-secondary">🎯 Пройти тест</a>
+                </div>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-card">
+                    <div class="stat-number">52</div>
+                    <div class="stat-label">слова в словаре</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">2</div>
+                    <div class="stat-label">поколения</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">20</div>
+                    <div class="stat-label">вопросов в тесте</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="about-project">
+            <h2>О проекте</h2>
+            <div class="about-grid">
+                <div class="about-card">
+                    <div class="about-icon">🎯</div>
+                    <h3>Цель проекта</h3>
+                    <p>Создать мост между поколениями через изучение современного сленга и профессиональной лексики. Помочь учителям понимать учеников, а ученикам — взрослых.</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon">📚</div>
+                    <h3>Что вы найдете</h3>
+                    <p>Словарь молодежного сленга, который используют школьники, и словарь профессиональных терминов из IT, бизнеса и педагогики. Более 50 актуальных слов!</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon">🧠</div>
+                    <h3>Интерактив</h3>
+                    <p>Увлекательный тест из 20 вопросов, который проверит, насколько хорошо вы ориентируетесь в языке разных поколений. Угадайте слово по его значению!</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="preview">
+            <h2>Популярные слова</h2>
+            <div class="preview-grid">
+                <div class="preview-item">
+                    <div class="word">Кринж</div>
+                    <div class="meaning">Что-то очень неловкое, стыдное, вызывающее смущение</div>
+                    <div class="category">Молодежный сленг</div>
+                </div>
+                <div class="preview-item">
+                    <div class="word">Вайб</div>
+                    <div class="meaning">Атмосфера, настроение, энергетика места или человека</div>
+                    <div class="category">Молодежный сленг</div>
+                </div>
+                <div class="preview-item">
+                    <div class="word">Деадлайн</div>
+                    <div class="meaning">Крайний срок выполнения задачи</div>
+                    <div class="category">Профессиональный сленг</div>
+                </div>
+                <div class="preview-item">
+                    <div class="word">Хард скиллы</div>
+                    <div class="meaning">Профессиональные навыки, которые можно измерить</div>
+                    <div class="category">Профессиональный сленг</div>
+                </div>
+            </div>
+            <div class="center-btn">
+                <a href="dictionary.html" class="btn btn-outline">Смотреть все 52 слова →</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>Проектная работа ученика 7 класса Московской школы</p>
+            <p>Сленг 21 века: от учителя до ученика © 2026</p>
+        </div>
+    </footer>
+
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
